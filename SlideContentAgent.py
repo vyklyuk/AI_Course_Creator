@@ -489,10 +489,10 @@ class SlidesAgent:
         course_title: str,
         module_title: str,
         lecture_title: str,
+        lecture_short_desc: str | None = None,
         difficulty_level: str = "beginner",
         minutes: int = 10,
         approx_slides: int = 10,
-        lecture_short_desc: str | None = None,
         save_path: Optional[str] = None,
         verbose: Optional[bool] = True,
     ) -> Tuple[str, str]:
