@@ -95,21 +95,38 @@ def _extract_notes(block: str) -> str:
 class LectureSlidesAgent:
     """Агент, що парсить .docx при ініціалізації і дає методи доступу."""
 
-    def __init__(self, path: str, text:str = None):
+    def __init__(self, path: str, text: str = None):
         self._path = Path(path)
         if not self._path.exists():
             raise FileNotFoundError(f"Файл не знайдено: {self._path}")
-        if text is None:
-            text = _read_docx_text(str(self._path))
-        blocks = _split_into_slides(text)
-        self._slides: List[Dict[str, Any]] = [
-            {
-                "title": _extract_title(b),
-                "content": _extract_content(b),
-                "notes": _extract_notes(b),
-            }
-            for b in blocks
-        ]
+
+        # Визначаємо тип файлу за розширенням
+        if self._path.suffix.lower() == ".json":
+            # Завантаження з JSON
+            with self._path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            self._slides = [
+                {
+                    "title": slide["title"],
+                    "content": slide["content"],
+                    "notes": slide["notes"]
+                }
+                for slide in data.get("slides", [])
+            ]
+        else:
+            # Існуюча логіка для .docx
+            if text is None:
+                text = _read_docx_text(str(self._path))
+            blocks = _split_into_slides(text)
+            self._slides = [
+                {
+                    "title": _extract_title(b),
+                    "content": _extract_content(b),
+                    "notes": _extract_notes(b),
+                }
+                for b in blocks
+            ]
 
     # ------------------------------
     # Публічне API
