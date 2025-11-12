@@ -163,7 +163,7 @@ class QuizAnswerExtractorAgent:
         self._setup_doc_styles(doc)
 
         # Title
-        title = doc.add_heading("AML Uncovered – Test Module", 0)
+        title = doc.add_heading("Test Module", 0)
         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
         # Questions

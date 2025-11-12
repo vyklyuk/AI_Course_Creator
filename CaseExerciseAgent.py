@@ -154,7 +154,7 @@ class CaseExerciseAgent:
     ) -> Dict[str, Any]:
         # --- SYSTEM PROMPT ---
         system_prompt = (
-            "You are a seasoned professor and instructional designer specializing in compliance and case-based learning. "
+            "You are a seasoned professor and instructional designer specializing in university course and case-based learning. "
             "You design clear training exercises.\n"
             "CRITICAL RULES:\n"
             "• Use ONLY the content and themes provided in the case study text.\n"

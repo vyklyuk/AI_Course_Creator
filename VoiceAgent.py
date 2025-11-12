@@ -12,7 +12,7 @@ import shutil
 
 class PresentationVoiceAgent:
     def __init__(self, client: OpenAI, model: str = "tts-1", voice: str = "nova",
-                 out_dir: str = "lecture_out", instructions: str = None, verbose = True):
+                 out_dir: str = "audio_out", instructions: str = None, verbose = True):
         self.client = client
         self.model = model
         self.voice = voice
@@ -26,16 +26,16 @@ class PresentationVoiceAgent:
         if resolved == Path("/") or resolved == Path.home():
             raise ValueError(f"Refusing to clean unsafe directory: {resolved}")
         
-        # Видаляємо кожен елемент всередині папки
-        for item in self.out.iterdir():
-            try:
-                if item.is_dir():
-                    shutil.rmtree(item)
-                else:
-                    item.unlink()
-            except Exception as e:
-                print(f"Some problem with clear folder {self.out}")
-                raise
+        # # Видаляємо кожен елемент всередині папки
+        # for item in self.out.iterdir():
+        #     try:
+        #         if item.is_dir():
+        #             shutil.rmtree(item)
+        #         else:
+        #             item.unlink()
+        #     except Exception as e:
+        #         print(f"Some problem with clear folder {self.out}")
+        #         raise
         
         self.instructions = instructions or (
             "Read the text with a tone that is clear, professional, high energy and confident, "

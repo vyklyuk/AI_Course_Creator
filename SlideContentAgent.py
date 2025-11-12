@@ -79,7 +79,7 @@ APPROVED_PHRASES: List[str] = [
 
 # ------------------------- Prompt template -------------------------
 
-SYSTEM_TEMPLATE = """You are a professional voiceover narrator for an educational AML course.
+SYSTEM_TEMPLATE = """You are a professional voiceover narrator for an educational university course.
 Your job is to make the lecture engaging, approachable, and easy to follow.
 
 STYLE RULES (mandatory):
@@ -326,7 +326,7 @@ def generate_intro_greeting_via_openai(
     opener = pick_intro_opener(course_title)
     # print(opener)
     sys = (
-        "You are a professional voiceover narrator for an educational AML course. "
+        "You are a professional voiceover narrator for an educational university course. "
         "Output a single short paragraph (2–4 sentences). "
         "Begin with the provided opener verbatim, then continue naturally. "
         "Mention the course and module naturally. "

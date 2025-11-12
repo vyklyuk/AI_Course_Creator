@@ -195,9 +195,9 @@ class CurriculaCourseAgent:
         - Topics or titles for videos, readings, case studies, and quizzes.
         - Learning objectives, themes, or specific content mentioned.
         - Any indicated structure (e.g., number of modules, types of activities).
-        Structure the course to closely match the provided description, adapting it to fit the JSON format and CRITICAL RULES. If the description lacks details (e.g., specific titles, descriptions, or questions), generate appropriate content based on the course_name, level, course_description, and context (e.g., AML/CFT for AML courses). If no description is provided, use the course_description and parameters to create a complete structure.
+        Structure the course to closely match the provided description, adapting it to fit the JSON format and CRITICAL RULES. If the description lacks details (e.g., specific titles, descriptions, or questions), generate appropriate content based on the course_name, level, course_description, and context. If no description is provided, use the course_description and parameters to create a complete structure.
 
-        Enhance the provided course_description to make it more engaging, professional, and structured. Expand it to 6-8 sentences, adding 2-3 sentences to highlight the course's value and target audience (e.g., compliance professionals, financial analysts). Emphasize practical applications (e.g., AML/CFT compliance, KYC processes) and align with the course name, level, and objectives. If the Word document provides a course description, incorporate its key points into the enhanced description.
+        Enhance the provided course_description to make it more engaging, professional, and structured. Expand it to 6-8 sentences, adding 2-3 sentences to highlight the course's value and target audience. Emphasize practical applications and align with the course name, level, and objectives. If the Word document provides a course description, incorporate its key points into the enhanced description.
 
         For each case study in modules and exam, include a 'duration_minutes' field calculated as the number of questions * 10. For each quiz in modules and exam, include a 'duration_minutes' field calculated as the number of questions * 2.
 
